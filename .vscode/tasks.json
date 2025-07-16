@@ -1,0 +1,14 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Format with Biome + Prettier",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "format:all"],
+      "group": "build",
+      "isBackground": false,
+      "problemMatcher": []
+    }
+  ]
+}
