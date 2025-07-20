@@ -53,22 +53,25 @@
   --color-dark: #17191c;
   --color-white: #ffffff;
   --color-primary: #fdd200;
+  --color-yellow-dark: #e9c100;
 
   --font-gilroy: "Gilroy", sans-serif;
+  --font-pt-serif: var(--font-pt-serif), serif;
 }
 
 @theme inline {
   --color-dark: var(--color-dark);
   --color-white: var(--color-white);
   --color-primary: #fdd200;
+  --color-yellow-dark: #e9c100;
 
   --font-gilroy: "Gilroy", sans-serif;
+  --font-pt-serif: var(--font-pt-serif), serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --dark: #17191c;
-
     --font-gilroy: "Gilroy", sans-serif;
   }
 }

@@ -1,14 +1,17 @@
 import { Button } from "@/app/ui/button";
+import FacebookIcon from "@/app/ui/icons/facebook";
+import InstagramIcon from "@/app/ui/icons/instagram";
+import WhatsappIcon from "@/app/ui/icons/whatsapp";
 import { Input } from "@/app/ui/input";
 import { ArrowRight, Send } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import logoBranca from "../../../../public/images/protcar-logo-branca.svg";
+import logoBranca from "../../../../../public/images/protcar-logo-branca.svg";
 import Container from "../container";
 
 export default function Footer() {
   return (
-    <footer className="bg-dark fixed bottom-0 w-full">
+    <footer className="bg-dark w-full">
       <Container className="mb-9 border-b border-white">
         <div className="flex justify-center gap-20 pt-20 pb-6">
           <div>
@@ -61,31 +64,13 @@ export default function Footer() {
           <div className="flex justify-between">
             <div className="flex gap-4">
               <Link href="/">
-                <Image
-                  src="/images/icon-facebook.svg"
-                  alt="Facebook"
-                  width={32}
-                  height={32}
-                  className="transition-opacity duration-300 ease-in-out hover:opacity-80"
-                />
+                <FacebookIcon />
               </Link>
               <Link href="/">
-                <Image
-                  src="/images/icon-wpp.svg"
-                  alt="WhatsApp"
-                  width={32}
-                  height={32}
-                  className="transition-opacity duration-300 ease-in-out hover:opacity-80"
-                />
+                <WhatsappIcon />
               </Link>
               <Link href="/">
-                <Image
-                  src="/images/icon-insta.svg"
-                  alt="Instagram"
-                  width={32}
-                  height={32}
-                  className="transition-opacity duration-300 ease-in-out hover:opacity-80"
-                />
+                <InstagramIcon />
               </Link>
             </div>
           </div>

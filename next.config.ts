@@ -1,16 +1,17 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Para Turbopack com MDX (Next.js 15+)
   experimental: {
     turbo: {
       rules: {
-        "*.tsx": {
+        "*.mdx": {
           loaders: ["@next/mdx-loader"],
         },
       },
     },
   },
+
   // Configurações para melhorar o HMR
   webpack: (config, { dev }) => {
     if (dev) {
@@ -21,10 +22,14 @@ const nextConfig: NextConfig = {
     }
     return config;
   },
+
   // Configurações para desenvolvimento
   env: {
     NEXT_TELEMETRY_DISABLED: "1",
   },
+
+  // Extensões de página se usar MDX
+  pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
 };
 
 export default nextConfig;

@@ -1,8 +1,8 @@
-import { Button } from "@/app/ui/button";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import logo from "../../../../public//images/protcar-logo.svg";
+import { Button } from "@/app/ui/button";
+import logo from "../../../../../public//images/protcar-logo.svg";
 import Container from "../container";
 
 export default function Header() {
@@ -24,7 +24,7 @@ export default function Header() {
                 Login associado
               </Button>
             </Link>
-            <Link href="/">
+            <Link href="/pagina-teste">
               <Button variant="default">
                 <ArrowRight className="size-4" />
                 Cotar agora
