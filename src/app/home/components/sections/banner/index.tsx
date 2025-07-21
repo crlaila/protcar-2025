@@ -10,8 +10,8 @@ import { CardTempo } from "./components/card-tempo";
 
 export function Banner() {
   return (
-    <Container>
-      <div className="mr-24 ml-12 flex items-center justify-between">
+    <Container className="mb-16 border-b border-black">
+      <div className="mr-14 flex items-center justify-between">
         <div>
           <h1 className="max-w-[530px] text-7xl leading-20 font-extrabold">
             A <span className="text-yellow-dark">proteção</span> <br />

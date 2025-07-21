@@ -1,13 +1,12 @@
+import { Button } from "@/app/ui/button";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/app/ui/button";
 import logo from "../../../../../public//images/protcar-logo.svg";
-import Container from "../container";
 
 export default function Header() {
   return (
-    <Container>
+    <div className="mx-auto w-full max-w-[1168px]">
       <main className="border-primary flex items-center justify-between border-b pt-12 pb-8">
         <Image src={logo} alt="Logo" width={143} height={40} />
 
@@ -33,6 +32,6 @@ export default function Header() {
           </div>
         </div>
       </main>
-    </Container>
+    </div>
   );
 }

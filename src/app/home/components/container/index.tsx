@@ -1,5 +1,5 @@
-import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import type { ReactNode } from "react";
 
 interface ContainerProps {
   children: ReactNode;
@@ -8,7 +8,7 @@ interface ContainerProps {
 
 export default function Container({ children, className }: ContainerProps) {
   return (
-    <div className={cn("mx-auto max-w-[1168px] px-4", className)}>
+    <div className={cn("mx-auto max-w-[1168px] px-[60px]", className)}>
       {children}
     </div>
   );
