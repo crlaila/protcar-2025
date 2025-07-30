@@ -1,7 +1,7 @@
-import { Button } from "@/app/ui/button";
-import { Card } from "@/app/ui/card";
 import { ArrowRight, ShieldCheck } from "lucide-react";
 import Image from "next/image";
+import { Button } from "@/app/ui/button";
+import { Card } from "@/app/ui/card";
 import Container from "../../container";
 import { CarsProtection } from "./components/cars-protection";
 
@@ -63,9 +63,7 @@ export function QuemSomos() {
                   Proteção de vidros{" "}
                   <span className="text-primary text-sm">• </span>
                   Incêndio <span className="text-primary text-sm">• </span>
-                  Perda total <span className="text-primary text-sm">
-                    •
-                  </span>{" "}
+                  Perda total <span className="text-primary text-sm">•</span>{" "}
                   Chuva de granizo{" "}
                   <span className="text-primary text-sm">• </span>
                   Enchente <span className="text-primary text-sm">• </span>

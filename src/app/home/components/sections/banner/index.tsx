@@ -1,8 +1,8 @@
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import { Button } from "@/app/ui/button";
 import { BolinhasIcon } from "@/app/ui/icons/bolinhas-banner";
 import CircleIcon from "@/app/ui/icons/circle-banner";
-import { ArrowRight } from "lucide-react";
-import Image from "next/image";
 import Container from "../../container";
 import { CardAssociados } from "./components/card-associados";
 import { CardSinistro } from "./components/card-sinistro";

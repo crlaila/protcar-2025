@@ -1,7 +1,7 @@
-import { Button } from "@/app/ui/button";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "@/app/ui/button";
 import logo from "../../../../../public//images/protcar-logo.svg";
 
 export default function Header() {
