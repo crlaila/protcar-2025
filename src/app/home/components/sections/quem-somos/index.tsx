@@ -1,20 +1,134 @@
-import { ArrowRight, ShieldCheck } from "lucide-react";
-import Image from "next/image";
+"use client";
+
 import { Button } from "@/app/ui/button";
 import { Card } from "@/app/ui/card";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ArrowRight, ShieldCheck } from "lucide-react";
+import Image from "next/image";
+import { useEffect, useRef } from "react";
 import Container from "../../container";
 import { CarsProtection } from "./components/cars-protection";
 
+// Registrar o plugin ScrollTrigger
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
 export function QuemSomos() {
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const descriptionRef = useRef<HTMLParagraphElement>(null);
+
+  // Refs para os cards
+  const card1Ref = useRef<HTMLDivElement>(null);
+  const card2Ref = useRef<HTMLDivElement>(null);
+  const card3Ref = useRef<HTMLDivElement>(null);
+  const card4Ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.innerWidth <= 1180) return;
+
+    // Animação suave para o título
+    gsap.fromTo(
+      titleRef.current,
+      {
+        opacity: 0,
+        y: 40,
+        scale: 0.95,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: titleRef.current,
+          start: "top 85%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    // Animação suave para a descrição
+    gsap.fromTo(
+      descriptionRef.current,
+      {
+        opacity: 0,
+        y: 30,
+        scale: 0.98,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 1,
+        delay: 0.3,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: descriptionRef.current,
+          start: "top 85%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    // Animação individual para cada card conforme o scroll
+    const cards = [
+      { ref: card1Ref, delay: 0 },
+      { ref: card2Ref, delay: 0 },
+      { ref: card3Ref, delay: 0 },
+      { ref: card4Ref, delay: 0 },
+    ];
+
+    cards.forEach(({ ref }) => {
+      if (ref.current) {
+        gsap.fromTo(
+          ref.current,
+          {
+            opacity: 0,
+            x: 60,
+            scale: 0.95,
+            rotation: 3,
+          },
+          {
+            opacity: 1,
+            x: 0,
+            scale: 1,
+            rotation: 0,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: ref.current, // Cada card tem seu próprio trigger
+              start: "top 85%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }
+    });
+
+    // Cleanup
+    return () => {
+      ScrollTrigger.killAll();
+    };
+  }, []);
+
   return (
     <Container className="border-primary mb-16 border-b">
       <div className="flex justify-between gap-[90px]">
         <div className="w-full max-w-[422px]">
           <div>
-            <h2 className="text-5xl font-bold">
+            <h2 ref={titleRef} className="text-5xl font-bold">
               Porque Protcar <span className="text-primary">?</span>
             </h2>
-            <p className="py-8 font-semibold text-gray-500">
+            <p
+              ref={descriptionRef}
+              className="py-8 font-semibold text-gray-500"
+            >
               Somos uma associação de proteção e assistência veicular criada com
               o{" "}
               <span className="text-dark">
@@ -38,7 +152,7 @@ export function QuemSomos() {
 
         <div className="mb-16 flex flex-col gap-5">
           {/* Protecao */}
-          <Card className="max-h-[190px] px-8 py-6">
+          <Card ref={card1Ref} className="max-h-[190px] px-8 py-6">
             <div className="flex gap-5">
               <div className="mt-1">
                 <Image
@@ -63,7 +177,9 @@ export function QuemSomos() {
                   Proteção de vidros{" "}
                   <span className="text-primary text-sm">• </span>
                   Incêndio <span className="text-primary text-sm">• </span>
-                  Perda total <span className="text-primary text-sm">•</span>{" "}
+                  Perda total <span className="text-primary text-sm">
+                    •
+                  </span>{" "}
                   Chuva de granizo{" "}
                   <span className="text-primary text-sm">• </span>
                   Enchente <span className="text-primary text-sm">• </span>
@@ -74,7 +190,7 @@ export function QuemSomos() {
           </Card>
 
           {/* Assistencia */}
-          <Card className="max-h-[190px] px-8 py-6">
+          <Card ref={card2Ref} className="max-h-[190px] px-8 py-6">
             <div className="flex gap-5">
               <div className="mt-1">
                 <Image
@@ -108,7 +224,7 @@ export function QuemSomos() {
           </Card>
 
           {/* Descontos */}
-          <Card className="max-h-[190px] px-8 py-6">
+          <Card ref={card3Ref} className="max-h-[190px] px-8 py-6">
             <div className="flex gap-5">
               <div className="mt-1">
                 <Image
@@ -130,7 +246,7 @@ export function QuemSomos() {
           </Card>
 
           {/* Custo de benefício */}
-          <Card className="max-h-[190px] px-8 py-6">
+          <Card ref={card4Ref} className="max-h-[190px] px-8 py-6">
             <div className="flex gap-5">
               <div className="mt-1 -ml-4">
                 <Image
